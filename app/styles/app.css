@@ -2,6 +2,10 @@
     position: relative;
 }
 
+.list-group-item {
+    cursor:pointer
+}
+
 .ded-image {
     position: fixed;
     top: 0;
