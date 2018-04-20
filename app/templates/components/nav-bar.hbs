@@ -1,0 +1,14 @@
+<nav class="navbar navbar-dark bg-dark">
+    <span class="navbar-brand">{{title}}</span>
+    <form class="form-inline">
+        {{input class="form-control mr-sm-2"
+                type="search"
+                placeholder="Ищи"
+                value=searchChars
+                aria-label="На"
+                autofocus="true"
+                autocomplete="false"
+                key-up=(action "searchByChar")
+                searchFunction=searchFunction}}
+    </form>
+</nav>

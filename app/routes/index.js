@@ -1,13 +1,24 @@
 import Route from '@ember/routing/route';
+import { inject } from '@ember/service';
 
 export default Route.extend({
-  model() {
-    let quotes = [
-      'а, ведь я так и понял, что мудила',
-      'адвокат - это тот же гад',
-      'башка твоя с плеч на этой неделе отлетает как кочан капусты'
-    ];
+  search: inject('search'),
+  database: inject('database'),
+  quotes: null,
 
-    return quotes
+  init() {
+    this.get('search').on('searchCharTyped', this, 'filterQuotes');
+    this.set('quotes', this.get('database').quotes);
+    this._super(...arguments);
+  },
+
+  filterQuotes(char) {
+    let controller = this.controllerFor('index');
+    let filtered = this.get('quotes').filter(quote => quote.includes(char))
+    controller.set('model', filtered);
+  },
+
+  model() {
+    return this.get('quotes');
   }
 });
