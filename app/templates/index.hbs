@@ -1,11 +1,5 @@
 <ul class="list-group">
-    <li class="list-group-item active">
-        <!--<audio controls class="embed-responsive-item">-->
-            <!--<source src="/assets/sounds/я%20те%20голову%20оторву%20немедленно.mp3">-->
-        <!--</audio>-->
-        Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Morbi leo risus</li>
-    <li class="list-group-item">Porta ac consectetur ac</li>
-    <li class="list-group-item">Vestibulum at eros</li>
+    {{#each model as |quote| }}
+        {{quote-player quote=quote audio=audio}}
+    {{/each}}
 </ul>
