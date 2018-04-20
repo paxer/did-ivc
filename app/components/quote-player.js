@@ -1,13 +1,21 @@
 import Component from '@ember/component';
+import { inject } from '@ember/service';
+import $ from 'jquery';
 
 export default Component.extend({
-  isActive: false,
   audio: null,
 
   actions: {
     play(quote) {
+      $('ul#quotes_list li').removeClass('active');
+      this.$('li').addClass('active');
+
       this.get('audio').src = `/assets/sounds/${quote}.mp3`;
       this.get('audio').play();
+
+      this.get('audio').onended = () => {
+        this.$('li').removeClass('active');
+      };
     }
   }
 });
