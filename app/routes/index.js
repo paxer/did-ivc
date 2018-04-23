@@ -7,18 +7,18 @@ export default Route.extend({
   quotes: null,
 
   init() {
-    this.get('search').on('searchCharTyped', this, 'filterQuotes');
-    this.set('quotes', this.get('database').quotes);
+    this.search.on('searchCharTyped', this, 'filterQuotes');
+    this.set('quotes', this.database.quotes);
     this._super(...arguments);
   },
 
   filterQuotes(char) {
     let controller = this.controllerFor('index');
-    let filtered = this.get('quotes').filter(quote => quote.includes(char))
+    let filtered = this.quotes.filter(quote => quote.includes(char));
     controller.set('model', filtered);
   },
 
   model() {
-    return this.get('quotes');
+    return this.quotes;
   }
 });

@@ -10,10 +10,10 @@ export default Component.extend({
       this.$('li').addClass('active');
       $('img#ded_image').fadeIn();
 
-      this.get('audio').src = `/assets/sounds/${quote}.mp3`;
-      this.get('audio').play();
+      this.audio.src = `/assets/sounds/${quote}.mp3`;
+      this.audio.play();
 
-      this.get('audio').onended = () => {
+      this.audio.onended = () => {
         this.$('li').removeClass('active');
         $('img#ded_image').fadeOut();
       };

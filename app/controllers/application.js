@@ -6,7 +6,7 @@ export default Controller.extend({
 
   actions: {
     search(char) {
-      this.get('search').emitSearchCharTyped(char);
+      this.search.emitSearchCharTyped(char);
     }
   },
 });

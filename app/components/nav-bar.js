@@ -8,7 +8,7 @@ export default Component.extend({
   database: inject('database'),
 
   init() {
-    let quotes = this.get('database').quotes;
+    let quotes = this.database.quotes;
     let title = quotes[Math.floor(Math.random() * quotes.length)];
     //
     this.set('title', title);
@@ -18,7 +18,7 @@ export default Component.extend({
 
   actions: {
     searchByChar() {
-      this.get('searchFunction')(this.get('searchChars'));
+      this.searchFunction(this.searchChars);
     }
   }
 });
