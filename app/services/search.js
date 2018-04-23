@@ -1,7 +1,7 @@
 import Service from '@ember/service';
-import Ember from 'ember'
+import Evented from '@ember/object/evented';
 
-export default Service.extend(Ember.Evented, {
+export default Service.extend(Evented, {
   emitSearchCharTyped(char) {
     this.trigger('searchCharTyped', char);
   }
