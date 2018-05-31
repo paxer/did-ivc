@@ -14,7 +14,7 @@ export default Route.extend({
 
   filterQuotes(char) {
     let controller = this.controllerFor('index');
-    let filtered = this.quotes.filter(quote => quote.includes(char));
+    let filtered = this.quotes.filter(quote => quote.toLowerCase().includes(char.toLowerCase()));
     controller.set('model', filtered);
   },
 
